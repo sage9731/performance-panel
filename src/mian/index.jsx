@@ -27,11 +27,12 @@ function Main() {
                 let upload = 0;
                 for (let i = 20; i < data.length - 1; i++) {
                     if (i % 2 === 0) {
-                        download += parseFloat(data[i]);
+                        download += parseFloat(data[i] || 0);
                     } else {
-                        upload += parseFloat(data[i]);
+                        upload += parseFloat(data[i] || 0);
                     }
                 }
+                
                 let i = 1;
                 setPerformance({
                     cpu: {
@@ -83,7 +84,7 @@ function Main() {
                     <ChipCard type="CPU" data={performance.cpu}/>
                 </Col>
                 <Col span={6}>
-                    <RamCard data={performance.ram}/>
+                    <RamCard type="RAM" data={performance.ram}/>
                 </Col>
                 <Col span={6}>
                     <NetworkCard data={performance.network}/>
@@ -92,7 +93,7 @@ function Main() {
                     <ChipCard type="GPU" data={performance.gpu}/>
                 </Col>
                 <Col span={6}>
-                    <RamCard data={performance.videoRam}/>
+                    <RamCard type="VRAM" data={performance.videoRam}/>
                 </Col>
                 <Col span={6}>
                     <VolumeCard data={performance.volume}/>

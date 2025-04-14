@@ -2,6 +2,7 @@ import React from 'react';
 
 function RamCard(
     {
+        type,
         data = {},
     }
 ) {
@@ -10,7 +11,7 @@ function RamCard(
     return (
         <div className="card">
             <div className="card-header">
-                <div className="card-title">RAM</div>
+                <div className="card-title">{type}</div>
             </div>
             <div className="card-body">
                 <div className="small-item">
@@ -22,12 +23,12 @@ function RamCard(
                     <span>{clock} MHz</span>
                 </div>
                 <div className="small-item">
-                    <span>Free</span>
-                    <span>{free} GB</span>
-                </div>
-                <div className="small-item">
                     <span>Used</span>
                     <span>{used} GB</span>
+                </div>
+                <div className="small-item">
+                    <span>Free</span>
+                    <span>{free} GB</span>
                 </div>
             </div>
         </div>
