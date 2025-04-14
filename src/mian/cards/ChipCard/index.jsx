@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Chip(
+function ChipCard(
     {
         type,
         data = {}
@@ -11,7 +11,8 @@ function Chip(
         temperature,
         clock,
         voltage,
-        power
+        power,
+        fan,
     } = data;
 
     return (
@@ -35,10 +36,14 @@ function Chip(
                         <span>Power</span>
                         <span>{power} W</span>
                     </div>
+                    <div className="small-item">
+                        <span>Fan</span>
+                        <span>{fan > 0 ? `${fan} RPM` : 'off'}</span>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Chip;
+export default ChipCard;

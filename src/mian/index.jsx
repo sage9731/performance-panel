@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {Col, Row} from "antd";
+import React, { useEffect, useState } from 'react';
+import { Col, Row } from "antd";
 import ChipCard from "./cards/ChipCard/index.jsx";
 import RamCard from "./cards/RamCard/index.jsx";
 import NetworkCard from "./cards/NetworkCard/index.jsx";
 import VolumeCard from "./cards/VolumeCard/index.jsx";
+import DisplayCard from './cards/DisplayCard/index.jsx';
 
 function Main() {
     const [performance, setPerformance] = useState({})
@@ -19,28 +20,20 @@ function Main() {
                     .map((elem) => {
                         if (elem) {
                             const [, val] = elem.split('|');
-                            return val;
+                            return val || 0;
                         }
-                        return elem;
+                        return 0;
                     });
-                let download = 0;
-                let upload = 0;
-                for (let i = 20; i < data.length - 1; i++) {
-                    if (i % 2 === 0) {
-                        download += parseFloat(data[i] || 0);
-                    } else {
-                        upload += parseFloat(data[i] || 0);
-                    }
-                }
-                
+
                 let i = 1;
-                setPerformance({
+                const performance = {
                     cpu: {
                         load: data[i++],
                         temperature: data[i++],
                         clock: data[i++],
                         voltage: data[i++],
                         power: data[i++],
+                        fan: data[i++],
                     },
                     gpu: {
                         load: data[i++],
@@ -48,6 +41,7 @@ function Main() {
                         clock: data[i++],
                         voltage: data[i++],
                         power: data[i++],
+                        fan: data[i++],
                     },
                     ram: {
                         load: data[i++],
@@ -61,14 +55,30 @@ function Main() {
                         free: data[i++],
                         used: data[i++],
                     },
+                    display: {
+                        fps: parseInt(data[i++], 10),
+                    },
                     volume: {
                         volume: data[i++],
-                    },
-                    network: {
-                        download,
-                        upload,
                     }
-                })
+                };
+
+                let download = 0;
+                let upload = 0;
+                for (let flag = true; i < data.length - 1; i++) {
+                    const val = parseFloat(data[i]);
+                    if (flag) {
+                        download += val;
+                    } else {
+                        upload += val;
+                    }
+                    flag = !flag;
+                }
+                performance.network = {
+                    download,
+                    upload,
+                }
+                setPerformance(performance)
             }
         });
 
@@ -81,22 +91,29 @@ function Main() {
         <div className="main">
             <Row gutter={[24, 24]}>
                 <Col span={12}>
-                    <ChipCard type="CPU" data={performance.cpu}/>
+                    <ChipCard type="CPU" data={performance.cpu} />
                 </Col>
                 <Col span={6}>
-                    <RamCard type="RAM" data={performance.ram}/>
+                    <RamCard type="RAM" data={performance.ram} />
                 </Col>
                 <Col span={6}>
-                    <NetworkCard data={performance.network}/>
+                    <NetworkCard data={performance.network} />
                 </Col>
                 <Col span={12}>
-                    <ChipCard type="GPU" data={performance.gpu}/>
+                    <ChipCard type="GPU" data={performance.gpu} />
                 </Col>
                 <Col span={6}>
-                    <RamCard type="VRAM" data={performance.videoRam}/>
+                    <RamCard type="VRAM" data={performance.videoRam} />
                 </Col>
                 <Col span={6}>
-                    <VolumeCard data={performance.volume}/>
+                    <DisplayCard data={performance.display} />
+                    {/* {
+                        performance?.display?.fps > 0 ? (
+                            <DisplayCard data={performance.display}/>
+                        ) : (
+                            <VolumeCard data={performance.volume}/>
+                        )
+                    } */}
                 </Col>
             </Row>
         </div>

@@ -11,7 +11,7 @@ function NetworkCard(
         if (val >= 1024) {
             return (val / 1024).toFixed(2) + ' Mb/s';
         }
-        return val + ' Kb/s';
+        return val.toFixed(1) + ' Kb/s';
     }, [])
 
     return (
