@@ -1,0 +1,128 @@
+body, #root {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    --theme-color: #fff;
+}
+
+.tc {
+    color: var(--theme-color);
+}
+
+.header {
+    flex: 1;
+
+    width: 100%;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    background: #1c1c1c;
+
+    .datetime {
+        font-size: 4rem;
+        letter-spacing: 0.2rem;
+    }
+}
+
+.main {
+
+    background: #1f1f1f;
+    padding: 1.5rem 1.5rem;
+
+    .ant-row {
+        margin-bottom: 2rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .card {
+        background: #2B2B2B;
+        border-radius: 0.5rem;
+
+        .card-header {
+            padding: 1rem;
+            border-bottom: 1px solid #3C3C3C;
+
+            .card-title {
+                font-size: 2rem;
+                color: var(--theme-color);
+            }
+        }
+
+        .card-body {
+            padding: 1rem;
+            height: 10rem;
+
+            .big-item {
+                text-align: center;
+                font-size: 4rem;
+            }
+
+            .small-item {
+                position: relative;
+                font-size: 1rem;
+                height: 2rem;
+                line-height: 2rem;
+                border-bottom: 1px solid #3c3c3c;
+                margin-bottom: 0.5rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &:before {
+                    display: block;
+                    content: '';
+                    width: 0.1rem;
+                    height: 70%;
+                    background: var(--theme-color);
+
+                    position: absolute;
+                    top: 15%;
+                }
+
+                > span:first-child {
+                    margin-left: 0.8rem;
+                }
+
+                > span:last-child {
+                    float: right;
+                }
+            }
+        }
+
+        &.card-chip {
+            .card-body {
+                display: flex;
+                align-items: center;
+
+                > div {
+                    padding: 0 1rem;
+                    width: 33.33%;
+                    border-right: 1px solid #3C3C3C;
+
+                    &:last-child {
+                        border: none;
+                    }
+                }
+
+
+            }
+        }
+
+        &.card-network {
+            .card-body {
+
+            }
+        }
+    }
+}

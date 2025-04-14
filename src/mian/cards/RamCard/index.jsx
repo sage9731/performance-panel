@@ -1,0 +1,37 @@
+import React from 'react';
+
+function RamCard(
+    {
+        data = {},
+    }
+) {
+    const { load, clock, free, used } = data;
+
+    return (
+        <div className="card">
+            <div className="card-header">
+                <div className="card-title">RAM</div>
+            </div>
+            <div className="card-body">
+                <div className="small-item">
+                    <span>Load</span>
+                    <span>{load}%</span>
+                </div>
+                <div className="small-item">
+                    <span>Clock</span>
+                    <span>{clock} MHz</span>
+                </div>
+                <div className="small-item">
+                    <span>Free</span>
+                    <span>{free} GB</span>
+                </div>
+                <div className="small-item">
+                    <span>Used</span>
+                    <span>{used} GB</span>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default RamCard;
