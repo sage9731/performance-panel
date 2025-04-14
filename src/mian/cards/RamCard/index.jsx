@@ -6,7 +6,7 @@ function RamCard(
         data = {},
     }
 ) {
-    const { load, clock, free, used } = data;
+    const { load = 0, clock = 0, free = 0, used = 0 } = data;
 
     return (
         <div className="card">

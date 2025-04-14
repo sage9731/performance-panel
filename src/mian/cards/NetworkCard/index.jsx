@@ -5,7 +5,7 @@ function NetworkCard(
         data = {}
     }
 ) {
-    const {download, upload} = data;
+    const {download = 0, upload = 0} = data;
 
     const format = useMemo(() => (val) => {
         if (val >= 1024) {
