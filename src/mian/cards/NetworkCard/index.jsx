@@ -22,10 +22,14 @@ function getDynamicMax(currentMax) {
 
 function NetworkCard(
     {
+        config = {},
         data = {},
         n = 30
     }
 ) {
+    const { themeColor } = config;
+    console.log(themeColor);
+    
     const {download = 0, upload = 0} = data;
 
     const [source, setSource] = useState(Array.from({length: n}, (_, i) => [i, 0, 0]))
@@ -85,7 +89,7 @@ function NetworkCard(
                 type: 'bar',
                 name: 'download',
                 itemStyle: {
-                    color: '#1AC4FF'
+                    color: themeColor
                 },
             },
         ],

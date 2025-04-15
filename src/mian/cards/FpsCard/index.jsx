@@ -23,10 +23,12 @@ function getDynamicMax(currentMax) {
 
 function FpsCard(
     {
+        config = {},
         data = {},
         n = 50
     }
 ) {
+    const { themeColor } = config;
     const {
         fps
     } = data;
@@ -75,7 +77,7 @@ function FpsCard(
                 type: 'line',
                 name: 'fps',
                 itemStyle: {
-                    color: '#1AC4FF'
+                    color: themeColor
                 },
                 smooth: 0.4,
                 symbol: 'none',
