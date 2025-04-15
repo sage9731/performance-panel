@@ -22,19 +22,20 @@ function getDynamicMax(currentMax) {
 
 function NetworkCard(
     {
-        data = {}
+        data = {},
+        n = 30
     }
 ) {
     const {download = 0, upload = 0} = data;
 
-    const [source, setSource] = useState(Array.from({length: 20}, (_, i) => [i, 0, 0]))
+    const [source, setSource] = useState(Array.from({length: n}, (_, i) => [i, 0, 0]))
 
     useEffect(() => {
         const {download, upload} = data;
 
         setSource(prev => {
             const [i] = prev.shift();
-            prev.push([i, upload, download]);
+            prev.push([i + n, upload, download]);
             return prev;
         })
     }, [data]);

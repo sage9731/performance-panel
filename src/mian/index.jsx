@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 import ChipCard from "./cards/ChipCard/index.jsx";
 import RamCard from "./cards/RamCard/index.jsx";
 import NetworkCard from "./cards/NetworkCard/index.jsx";
-import DisplayCard from './cards/DisplayCard/index.jsx';
+import FpsCard from './cards/FpsCard/index.jsx';
 
 function Main() {
     const [readyState, setReadyState] = useState(0);
@@ -113,7 +113,7 @@ function Main() {
                             <RamCard type="VRAM" data={performance.videoRam} />
                         </Col>
                         <Col span={6}>
-                            <DisplayCard data={performance.display} />
+                            <FpsCard data={performance.display} />
                         </Col>
                     </Row>
                 ) : (
