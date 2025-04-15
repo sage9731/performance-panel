@@ -137,5 +137,30 @@ body, #root {
 
             }
         }
+
+        &.card-network {
+            .card-body {
+                display: flex;
+                flex-direction: column;
+
+                > div:last-child {
+                    flex: 1;
+                }
+            }
+        }
+
+        &.card-display {
+            .card-body {
+                position: relative;
+
+                .big-item {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    white-space: nowrap;
+                }
+            }
+        }
     }
 }

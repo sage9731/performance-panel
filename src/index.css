@@ -12,6 +12,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    /*pointer-events: none;*/
+    cursor: default;
     user-select: none;
 }
 
