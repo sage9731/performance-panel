@@ -1,4 +1,5 @@
 import React from 'react';
+import {DisplayIcon} from "../../../icon/index.jsx";
 
 function DisplayCard(
     {
@@ -12,6 +13,7 @@ function DisplayCard(
     return (
         <div className="card display-chip">
             <div className="card-header">
+                <div className="card-icon"><DisplayIcon/></div>
                 <div className="card-title">Display</div>
             </div>
             <div className="card-body">

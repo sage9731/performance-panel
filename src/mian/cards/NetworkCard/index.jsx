@@ -1,4 +1,5 @@
 import React, {useMemo} from 'react';
+import {NetworkIcon} from "../../../icon/index.jsx";
 
 function NetworkCard(
     {
@@ -17,6 +18,7 @@ function NetworkCard(
     return (
         <div className="card card-network">
             <div className="card-header">
+                <div className="card-icon"><NetworkIcon/></div>
                 <div className="card-title">Network</div>
             </div>
             <div className="card-body">

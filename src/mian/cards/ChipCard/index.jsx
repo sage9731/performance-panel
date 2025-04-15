@@ -1,4 +1,5 @@
 import React from 'react';
+import {CpuIcon, GpuIcon} from "../../../icon/index.jsx";
 
 function ChipCard(
     {
@@ -18,6 +19,7 @@ function ChipCard(
     return (
         <div className="card card-chip">
             <div className="card-header">
+                <div className="card-icon">{type === 'CPU' ? <CpuIcon /> : <GpuIcon/>}</div>
                 <div className="card-title">{type}</div>
             </div>
             <div className="card-body">

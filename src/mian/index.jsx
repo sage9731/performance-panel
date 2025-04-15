@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row } from "antd";
+import { Row, Col } from "antd";
 import ChipCard from "./cards/ChipCard/index.jsx";
 import RamCard from "./cards/RamCard/index.jsx";
 import NetworkCard from "./cards/NetworkCard/index.jsx";
-import VolumeCard from "./cards/VolumeCard/index.jsx";
 import DisplayCard from './cards/DisplayCard/index.jsx';
 
 function Main() {
+    const [readyState, setReadyState] = useState(0);
     const [performance, setPerformance] = useState({})
 
     useEffect(() => {
@@ -82,40 +82,45 @@ function Main() {
             }
         });
 
+        const timer = setInterval(() => {
+            setReadyState(source.readyState);
+        }, 1000);
+
         return () => {
             source.close();
+            clearInterval(timer);
         }
     }, []);
 
     return (
         <div className="main">
-            <Row gutter={[24, 24]}>
-                <Col span={12}>
-                    <ChipCard type="CPU" data={performance.cpu} />
-                </Col>
-                <Col span={6}>
-                    <RamCard type="RAM" data={performance.ram} />
-                </Col>
-                <Col span={6}>
-                    <NetworkCard data={performance.network} />
-                </Col>
-                <Col span={12}>
-                    <ChipCard type="GPU" data={performance.gpu} />
-                </Col>
-                <Col span={6}>
-                    <RamCard type="VRAM" data={performance.videoRam} />
-                </Col>
-                <Col span={6}>
-                    <DisplayCard data={performance.display} />
-                    {/* {
-                        performance?.display?.fps > 0 ? (
-                            <DisplayCard data={performance.display}/>
-                        ) : (
-                            <VolumeCard data={performance.volume}/>
-                        )
-                    } */}
-                </Col>
-            </Row>
+            {
+                readyState === 1 ? (
+                    <Row gutter={[24, 24]}>
+                        <Col span={12}>
+                            <ChipCard type="CPU" data={performance.cpu} />
+                        </Col>
+                        <Col span={6}>
+                            <RamCard type="RAM" data={performance.ram} />
+                        </Col>
+                        <Col span={6}>
+                            <NetworkCard data={performance.network} />
+                        </Col>
+                        <Col span={12}>
+                            <ChipCard type="GPU" data={performance.gpu} />
+                        </Col>
+                        <Col span={6}>
+                            <RamCard type="VRAM" data={performance.videoRam} />
+                        </Col>
+                        <Col span={6}>
+                            <DisplayCard data={performance.display} />
+                        </Col>
+                    </Row>
+                ) : (
+                    <div/>
+                )
+            }
+
         </div>
     );
 }
