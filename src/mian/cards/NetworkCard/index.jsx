@@ -13,7 +13,7 @@ echarts.use(
 );
 
 const speedLevels = [0.05, 0.5, 3, 8, 15, 70, 120].map(v => v * 1024); // 转换为KB/s单位的阈值
-function getDynamicMax(currentMax) {
+function calcDynamicMax(currentMax) {
     for (let level of speedLevels) {
         if (currentMax <= level) return level; // 返回对应KB值
     }
@@ -24,22 +24,35 @@ function NetworkCard(
     {
         config = {},
         data = {},
-        n = 30
+        n = 40
     }
 ) {
     const { themeColor } = config;
-    console.log(themeColor);
     
     const {download = 0, upload = 0} = data;
-
+    
+    const [dynamicMax, setDynamicMax] = useState(1024);
     const [source, setSource] = useState(Array.from({length: n}, (_, i) => [i, 0, 0]))
 
     useEffect(() => {
-        const {download, upload} = data;
+        let {download, upload} = data;
+        if (download < 1) {
+            download = 0;
+        }
+
+        if (upload < 1) {
+            upload = 0;
+        }
 
         setSource(prev => {
             const [i] = prev.shift();
             prev.push([i + n, upload, download]);
+
+            let max = Math.max(upload, download)
+            for(let j = prev.length -1; j > prev.length - 15; j--) {
+                max = Math.max(max, prev[j][1], prev[j][2])
+            }
+            setDynamicMax(calcDynamicMax(max));
             return prev;
         })
     }, [data]);
@@ -73,7 +86,7 @@ function NetworkCard(
         },
         yAxis: {
             type: 'value',
-            max: value => getDynamicMax(value.max),
+            max: dynamicMax,
             axisLabel: {show: false},
             splitLine: {show: false},
         },
