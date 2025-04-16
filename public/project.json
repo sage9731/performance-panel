@@ -66,7 +66,7 @@
 				"order" : 100,
 				"text" : "语言（Language）",
 				"type" : "combo",
-				"value" : "chinese"
+				"value" : "english"
 			},
 			"marginBottom" :
 			{
