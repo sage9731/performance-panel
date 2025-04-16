@@ -1,5 +1,6 @@
 import React from 'react';
 import {CpuIcon, GpuIcon} from "../../../icon/index.jsx";
+import useIntl from "../../../hooks/useIntl.jsx";
 
 function ChipCard(
     {
@@ -16,6 +17,8 @@ function ChipCard(
         fan,
     } = data;
 
+    const intl = useIntl();
+
     return (
         <div className="card card-chip">
             <div className="card-header">
@@ -27,19 +30,19 @@ function ChipCard(
                 <div className="big-item">{temperature}<span className="theme-color">℃</span></div>
                 <div>
                     <div className="small-item">
-                        <span>Clock</span>
+                        <span>{intl('clock')}</span>
                         <span>{clock > 1000 ? `${(clock / 1000).toFixed(2)} Ghz` : `${clock} Mhz`}</span>
                     </div>
                     <div className="small-item">
-                        <span>Voltage</span>
+                        <span>{intl('voltage')}</span>
                         <span>{voltage} V</span>
                     </div>
                     <div className="small-item">
-                        <span>Power</span>
+                        <span>{intl('power')}</span>
                         <span>{power} W</span>
                     </div>
                     <div className="small-item">
-                        <span>Fan</span>
+                        <span>{intl('fan')}</span>
                         <span>{fan > 0 ? `${fan} RPM` : 'off'}</span>
                     </div>
                 </div>

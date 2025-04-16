@@ -7,12 +7,14 @@ import {
     CanvasRenderer,
 } from 'echarts/renderers';
 import {NetworkIcon} from "../../../icon/index.jsx";
+import {useConfig} from "../../../hooks/useConfig.js";
+import useIntl from "../../../hooks/useIntl.jsx";
 
 echarts.use(
     [BarChart, CanvasRenderer, DatasetComponent, GridComponent]
 );
 
-const speedLevels = [0.05, 0.5, 3, 8, 15, 70, 120].map(v => v * 1024); // 转换为KB/s单位的阈值
+const speedLevels = [0.1, 0.5, 3, 8, 15, 70, 120].map(v => v * 1024); // 转换为KB/s单位的阈值
 function calcDynamicMax(currentMax) {
     for (let level of speedLevels) {
         if (currentMax <= level) return level; // 返回对应KB值
@@ -22,13 +24,12 @@ function calcDynamicMax(currentMax) {
 
 function NetworkCard(
     {
-        config = {},
         data = {},
         n = 40
     }
 ) {
-    const { themeColor } = config;
-    
+    const { themeColor } = useConfig();
+    const intl = useIntl();
     const {download = 0, upload = 0} = data;
     
     const [dynamicMax, setDynamicMax] = useState(1024);
@@ -55,7 +56,7 @@ function NetworkCard(
             setDynamicMax(calcDynamicMax(max));
             return prev;
         })
-    }, [data]);
+    }, [data, n]);
 
     const format = useMemo(() => (val) => {
         if (val >= 1024) {
@@ -113,15 +114,15 @@ function NetworkCard(
         <div className="card card-network">
             <div className="card-header">
                 <div className="card-icon"><NetworkIcon/></div>
-                <div className="card-title">Network</div>
+                <div className="card-title">{intl('network')}</div>
             </div>
             <div className="card-body">
                 <div className="small-item">
-                    <span>Upload</span>
+                    <span>{intl('upload')}</span>
                     <span>{format(upload)}</span>
                 </div>
                 <div className="small-item">
-                    <span>Download</span>
+                    <span>{intl('download')}</span>
                     <span>{format(download)}</span>
                 </div>
                 <ReactEChartsCore

@@ -7,6 +7,8 @@ import {
     CanvasRenderer,
 } from 'echarts/renderers';
 import { DisplayIcon } from "../../../icon/index.jsx";
+import {useConfig} from "../../../hooks/useConfig.js";
+import useIntl from "../../../hooks/useIntl.jsx";
 
 echarts.use(
     [LineChart, CanvasRenderer, DatasetComponent, GridComponent]
@@ -23,17 +25,17 @@ function getDynamicMax(currentMax) {
 
 function FpsCard(
     {
-        config = {},
         data = {},
         n = 50
     }
 ) {
-    const { themeColor } = config;
+    const { themeColor } = useConfig();
     const {
         fps
     } = data;
 
     const [source, setSource] = useState(Array.from({ length: n }, (_, i) => [i, 0]));
+    const intl = useIntl();
 
     useEffect(() => {
         const { fps } = data;
@@ -43,7 +45,7 @@ function FpsCard(
             prev.push([i + n, fps]);
             return prev;
         });
-    }, [data]);
+    }, [data, n]);
 
     const option = {
         grid: {
@@ -90,7 +92,7 @@ function FpsCard(
         <div className="card card-display">
             <div className="card-header">
                 <div className="card-icon"><DisplayIcon /></div>
-                <div className="card-title">FPS</div>
+                <div className="card-title">{intl('fps')}</div>
             </div>
             <div className="card-body">
                 <ReactEChartsCore

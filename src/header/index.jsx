@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { getDate, getTime } from "../utils/date.js";
+import React, {useEffect, useState} from 'react';
+import {getDate, getTime} from "../utils/date.js";
+import {useConfig} from "../hooks/useConfig.js";
 
-function Header(
-    {
-        config
-    }
-) {
-    const { dateSeparator, timeSeparator } = config;
-    const [date, setDate] = useState();
-    const [time, setTime] = useState();
+function Header() {
+    const {dateSeparator, timeSeparator} = useConfig();
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
 
     useEffect(() => {
         const timer = setInterval(() => {
             const now = new Date();
             setDate(getDate(now, dateSeparator));
             setTime(getTime(now, timeSeparator));
-        }, []);
+        }, 1000);
 
         return () => {
             clearInterval(timer);

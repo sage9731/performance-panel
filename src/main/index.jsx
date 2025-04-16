@@ -4,13 +4,12 @@ import ChipCard from "./cards/ChipCard/index.jsx";
 import RamCard from "./cards/RamCard/index.jsx";
 import NetworkCard from "./cards/NetworkCard/index.jsx";
 import FpsCard from './cards/FpsCard/index.jsx';
+import {useConfig} from "../hooks/useConfig.js";
+import useIntl from "../hooks/useIntl.jsx";
 
-function Main(
-    {
-        config
-    }
-) {
-    const { host, port } = config;
+function Main() {
+    const { host, port } = useConfig();
+    const intl = useIntl();
     const [readyState, setReadyState] = useState(0);
     const [performance, setPerformance] = useState({})
 
@@ -109,7 +108,7 @@ function Main(
                             <RamCard type="RAM" data={performance.ram} />
                         </Col>
                         <Col span={6}>
-                            <NetworkCard config={config} data={performance.network} />
+                            <NetworkCard data={performance.network} />
                         </Col>
                         <Col span={12}>
                             <ChipCard type="GPU" data={performance.gpu} />
@@ -118,12 +117,12 @@ function Main(
                             <RamCard type="VRAM" data={performance.videoRam} />
                         </Col>
                         <Col span={6}>
-                            <FpsCard config={config} data={performance.display} />
+                            <FpsCard data={performance.display} />
                         </Col>
                     </Row>
                 ) : (
                     <div className="usage-tips">
-                        <span>AIDA64 LCD Remote Sensor not available. Please visit <a href="https://github.com/sage9731/performance-panel" target="_blank">https://github.com/sage9731/performance-panel</a> and see how it works.</span>
+                        {intl('usage')}
                     </div>
                 )
             }

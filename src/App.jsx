@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import {useState, useEffect} from 'react';
 import './App.css'
 import Header from "./header";
-import Main from "./mian/index.jsx";
-import { useEffect } from "react";
-import { convertColor } from './utils/wallpaper.js';
-import { setCssVar } from './utils/common.js';
+import Main from "./main/index.jsx";
+import {ConfigContext} from "./hooks/useConfig.js";
+import {convertColor} from './utils/wallpaper.js';
+import {setCssVar} from './utils/common.js';
 
 
 function App() {
     const [config, setConfig] = useState({
+        language: 'english',
         host: 'localhost',
         port: 32100,
         dateSeparator: '-',
@@ -20,6 +21,7 @@ function App() {
         window.wallpaperPropertyListener = {
             applyUserProperties: function (properties) {
                 const {
+                    language,
                     host,
                     port,
                     themecolor,
@@ -32,6 +34,7 @@ function App() {
                 } = properties;
 
                 setConfig(prevConfig => {
+                    prevConfig.language = language?.value || 'english';
                     if (host?.value) {
                         prevConfig.host = host.value;
                     }
@@ -80,10 +83,10 @@ function App() {
     }, [])
 
     return (
-        <>
-            <Header config={config} />
-            <Main config={config} />
-        </>
+        <ConfigContext.Provider value={config}>
+            <Header/>
+            <Main/>
+        </ConfigContext.Provider>
     )
 }
 
