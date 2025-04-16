@@ -1,5 +1,7 @@
 # Performance Panel
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 [中文](./README.md) | English
 
 This project is a web wallpaper for Wallpaper Engine that displays performance data provided by [AIDA64](https://www.aida64.com/downloads) and [Riva Tuner Statistics Server](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/)
