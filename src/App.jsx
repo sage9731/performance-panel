@@ -35,7 +35,9 @@ function App() {
                 } = properties;
 
                 setConfig(prevConfig => {
-                    prevConfig.language = language?.value || 'english';
+                    if (language?.value) {
+                        prevConfig.language = language.value;
+                    }
                     if (host?.value) {
                         prevConfig.host = host.value;
                     }
