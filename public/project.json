@@ -4,58 +4,77 @@
 	{
 		"properties" : 
 		{
-			"clockfont" : 
+			"clockFont" :
 			{
-				"index" : 4,
-				"order" : 104,
+				"index" : 5,
+				"order" : 105,
 				"text" : "时间字体（Clock Font）",
 				"type" : "textinput",
 				"value" : "Arial"
 			},
-			"clockfontsize" : 
+			"clockFontSize" :
 			{
 				"fraction" : true,
-				"index" : 5,
+				"index" : 6,
 				"max" : 8,
 				"min" : 1,
-				"order" : 105,
+				"order" : 106,
 				"precision" : 2,
 				"step" : 0.1,
 				"text" : "时钟字体大小（Clock Font Size）",
 				"type" : "slider",
 				"value" : 4
 			},
-			"dateseparator" : 
+			"dateSeparator" :
 			{
-				"index" : 6,
-				"order" : 106,
+				"index" : 7,
+				"order" : 107,
 				"text" : "日期分隔符（Date Separator）",
 				"type" : "textinput",
 				"value" : "-"
 			},
-			"font" : 
+			"customFont" :
 			{
-				"index" : 3,
-				"order" : 103,
+				"index" : 4,
+				"order" : 104,
 				"text" : "自定义字体(Custom Font)",
 				"type" : "textinput",
 				"value" : ""
 			},
 			"host" : 
 			{
-				"index" : 0,
-				"order" : 100,
+				"index" : 1,
+				"order" : 101,
 				"text" : "地址（Remote Sensor Host）",
 				"type" : "textinput",
 				"value" : "localhost"
 			},
-			"marginbottom" : 
+			"language" : 
+			{
+				"index" : 0,
+				"options" : 
+				[
+					{
+						"label" : "中文",
+						"value" : "chinese"
+					},
+					{
+						"label" : "English",
+						"value" : "english"
+					}
+				],
+				"order" : 100,
+				"text" : "语言（Language）",
+				"type" : "combo",
+				"value" : "chinese"
+			},
+			"marginBottom" :
 			{
 				"fraction" : true,
-				"index" : 8,
+				"index" : 9,
 				"max" : 10,
 				"min" : 0,
-				"order" : 108,
+				"order" : 109,
 				"precision" : 2,
 				"step" : 0.1,
 				"text" : "底部边距（Margin Bottom）",
@@ -64,8 +83,8 @@
 			},
 			"port" : 
 			{
-				"index" : 1,
-				"order" : 101,
+				"index" : 2,
+				"order" : 102,
 				"text" : "端口（Remote Sensor Port）",
 				"type" : "textinput",
 				"value" : "32100"
@@ -77,18 +96,18 @@
 				"type" : "color",
 				"value" : "0 0 0"
 			},
-			"themecolor" : 
+			"themeColor" :
 			{
-				"index" : 2,
-				"order" : 102,
+				"index" : 3,
+				"order" : 103,
 				"text" : "主题色（Theme Color）",
 				"type" : "color",
 				"value" : "0.2274509803921569 0.8549019607843137 0.2274509803921569"
 			},
-			"timeseparator" : 
+			"timeSeparator" :
 			{
-				"index" : 7,
-				"order" : 107,
+				"index" : 8,
+				"order" : 108,
 				"text" : "时间分隔符（Time Separator）",
 				"type" : "textinput",
 				"value" : ":"

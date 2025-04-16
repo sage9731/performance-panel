@@ -18,19 +18,20 @@ function App() {
     });
 
     useEffect(() => {
+        // noinspection JSUnusedGlobalSymbols
         window.wallpaperPropertyListener = {
             applyUserProperties: function (properties) {
                 const {
                     language,
                     host,
                     port,
-                    themecolor,
+                    themeColor,
                     font,
-                    clockfont,
-                    clockfontsize,
-                    dateseparator,
-                    timeseparator,
-                    marginbottom,
+                    clockFont,
+                    clockFontSize,
+                    dateSeparator,
+                    timeSeparator,
+                    marginBottom,
                 } = properties;
 
                 setConfig(prevConfig => {
@@ -41,8 +42,8 @@ function App() {
                     if (port?.value) {
                         prevConfig.port = port.value;
                     }
-                    if (themecolor?.value) {
-                        const tc = convertColor(themecolor);
+                    if (themeColor?.value) {
+                        const tc = convertColor(themeColor);
                         setCssVar('--theme-color', tc);
                         prevConfig.themeColor = tc;
                     }
@@ -53,22 +54,22 @@ function App() {
                         setCssVar('--custom-font', '')
                         setCssVar('--clock-font', '')
                     }
-                    if (clockfont?.value) {
-                        setCssVar('--clock-font', clockfont.value)
+                    if (clockFont?.value) {
+                        setCssVar('--clock-font', clockFont.value)
                     } else {
                         setCssVar('--clock-font', '')
                     }
-                    if (clockfontsize?.value) {
-                        setCssVar('--clock-font-size', clockfontsize.value + 'rem')
+                    if (clockFontSize?.value) {
+                        setCssVar('--clock-font-size', clockFontSize.value + 'rem')
                     }
-                    if (dateseparator?.value) {
-                        prevConfig.dateSeparator = dateseparator.value;
+                    if (dateSeparator?.value) {
+                        prevConfig.dateSeparator = dateSeparator.value;
                     }
-                    if (timeseparator?.value) {
-                        prevConfig.timeSeparator = timeseparator.value;
+                    if (timeSeparator?.value) {
+                        prevConfig.timeSeparator = timeSeparator.value;
                     }
-                    if (marginbottom?.value) {
-                        setCssVar('--margin-bottom', marginbottom.value + 'rem')
+                    if (marginBottom?.value) {
+                        setCssVar('--margin-bottom', marginBottom.value + 'rem')
                     } else {
                         setCssVar('--margin-bottom', 0)
                     }
