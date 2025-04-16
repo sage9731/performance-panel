@@ -15,7 +15,7 @@
    <img src="./assets/aida64-zh-1.png" alt="">
 3. 切换到LCD设置，找到 Remote Sensor，修改 TCP/IP 端口为 32100，勾选启用RemoteSensor LCD支持，应用设置后提示“RemoteSensor Init OK”
    <img src="./assets/aida64-zh-2.png" alt="">
-4. 切换到LCD-LCD项目，导入 [performance-panel-lcd.rslcd](./performance-panel-lcd.rslcd)文件并应用
+4. 切换到LCD-LCD项目，下载并导入 [performance-panel-lcd.rslcd](./public/performance-panel-lcd.rslcd) 文件并应用
    <img src="./assets/aida64-zh-3.png" alt="">
 
 ## 安装 Riva Tuner Statistics Server

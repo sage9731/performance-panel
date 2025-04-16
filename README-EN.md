@@ -15,7 +15,7 @@ This project is a web wallpaper for Wallpaper Engine that displays performance d
    <img src="./assets/aida64-eng-1.png" alt="">
 3. Navigate to LCD settings, find Remote Sensor, change TCP/IP port to 32100, check "Enable RemoteSensor LCD support". After applying settings, you should see "RemoteSensor Init OK" prompt
    <img src="./assets/aida64-eng-2.png" alt="">
-4. Go to LCD items, import [performance-panel-lcd-english.rslcd](./performance-panel-lcd-english.rslcd) file and apply
+4. Go to LCD items, import [performance-panel-lcd-english.rslcd](./public/performance-panel-lcd-english.rslcd) file and apply
    <img src="./assets/aida64-eng-3.png" alt="">
 
 ## Install Riva Tuner Statistics Server
