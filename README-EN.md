@@ -27,7 +27,7 @@ This project is a web wallpaper for Wallpaper Engine that displays performance d
 
 ## Apply Wallpaper Engine Wallpaper
 
-Subscribe to Performance Panel in Wallpaper Engine's Steam Workshop and enjoy it
+Subscribe to [Performance Panel](https://steamcommunity.com/sharedfiles/filedetails/?id=3464821056) in Wallpaper Engine's Steam Workshop and enjoy it
 
 # FAQ
 

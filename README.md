@@ -27,7 +27,7 @@
 
 ## 应用 Wallpaper Engine 壁纸
 
-在 Wallpaper Engine 的 Steam 创意工坊中订阅 Performance Panel，即可开始享用
+在 Wallpaper Engine 的 Steam 创意工坊中订阅 [Performance Panel](https://steamcommunity.com/sharedfiles/filedetails/?id=3464821056)，即可开始享用
 
 # 常见问题
 
