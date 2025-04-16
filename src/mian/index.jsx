@@ -122,7 +122,9 @@ function Main(
                         </Col>
                     </Row>
                 ) : (
-                    <div/>
+                    <div className="usage-tips">
+                        <span>AIDA64 LCD Remote Sensor not available. Please visit <a href="https://github.com/sage9731/performance-panel" target="_blank">https://github.com/sage9731/performance-panel</a> and see how it works.</span>
+                    </div>
                 )
             }
 

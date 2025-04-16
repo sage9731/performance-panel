@@ -23,7 +23,7 @@ body,
     font-family: var(--custom-font), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 
-.tc {
+.theme-color {
     color: var(--theme-color);
 }
 
@@ -52,6 +52,10 @@ body,
 
     background: #1f1f1f;
     padding: 1.5rem;
+
+    .usage-tips {
+        text-align: center;
+    }
 
     .ant-row {
         margin-bottom: 2rem;

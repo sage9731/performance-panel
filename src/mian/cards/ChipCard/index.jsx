@@ -24,7 +24,7 @@ function ChipCard(
             </div>
             <div className="card-body">
                 <div className="big-item">{load}%</div>
-                <div className="big-item">{temperature}<span className="tc">℃</span></div>
+                <div className="big-item">{temperature}<span className="theme-color">℃</span></div>
                 <div>
                     <div className="small-item">
                         <span>Clock</span>
