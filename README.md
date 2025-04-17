@@ -6,7 +6,7 @@
 
 此项目为 Wallpaper Engine 的网页壁纸，展示 [AIDA64](https://www.aida64.com/downloads) 和 [Riva Tuner Statistics Server](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/) 提供的性能数据
 
-<img src="./assets/screenshot.png" alt="screenshot">
+<img src="./assets/screenshot.gif" alt="screenshot">
 
 # 使用方法
 

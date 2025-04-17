@@ -6,7 +6,7 @@
 
 This project is a web wallpaper for Wallpaper Engine that displays performance data provided by [AIDA64](https://www.aida64.com/downloads) and [Riva Tuner Statistics Server](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/)
 
-<img src="./assets/screenshot.png" alt="screenshot">
+<img src="./assets/screenshot-eng.gif" alt="screenshot">
 
 # Usage Guide
 
