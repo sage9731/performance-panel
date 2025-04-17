@@ -29,21 +29,19 @@ function FpsCard(
         n = 50
     }
 ) {
+    const { value: fps } = data;
     const { themeColor } = useConfig();
-    const {
-        fps
-    } = data;
 
     const [source, setSource] = useState(Array.from({ length: n }, (_, i) => [i, 0]));
     const intl = useIntl();
 
     useEffect(() => {
-        const { fps } = data;
+        const { timestamp, value } = data;
 
         setSource(prev => {
-            const [i] = prev.shift();
-            prev.push([i + n, fps]);
-            return prev;
+            const source = prev.slice(1);
+            source.push([timestamp, value]);
+            return source;
         });
     }, [data, n]);
 
@@ -81,7 +79,7 @@ function FpsCard(
                 itemStyle: {
                     color: themeColor
                 },
-                smooth: 0.4,
+                smooth: 0.5,
                 symbol: 'none',
             },
         ],
@@ -89,7 +87,7 @@ function FpsCard(
     };
 
     return (
-        <div className="card card-display">
+        <div className="card card-audio">
             <div className="card-header">
                 <div className="card-icon"><DisplayIcon /></div>
                 <div className="card-title">{intl('fps')}</div>

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col } from "antd";
+import React, {useEffect, useState} from 'react';
+import {Row, Col} from "antd";
 import ChipCard from "./cards/ChipCard/index.jsx";
 import RamCard from "./cards/RamCard/index.jsx";
 import NetworkCard from "./cards/NetworkCard/index.jsx";
 import FpsCard from './cards/FpsCard/index.jsx';
 import {useConfig} from "../hooks/useConfig.js";
 import useIntl from "../hooks/useIntl.jsx";
+import AudioCard from "./cards/AudioCard/index.jsx";
 
 function Main() {
-    const { host, port } = useConfig();
+    const {host, port} = useConfig();
     const intl = useIntl();
     const [readyState, setReadyState] = useState(0);
     const [performance, setPerformance] = useState({})
@@ -59,12 +60,11 @@ function Main() {
                         free: data[i++],
                         used: data[i++],
                     },
-                    display: {
-                        fps: parseInt(data[i++], 10),
+                    fps: {
+                        timestamp: Date.now(),
+                        value: data[i++],
                     },
-                    volume: {
-                        volume: data[i++],
-                    }
+                    volume: data[i++],
                 };
 
                 let download = 0;
@@ -102,22 +102,28 @@ function Main() {
                 readyState === 1 ? (
                     <Row gutter={[24, 24]}>
                         <Col span={12}>
-                            <ChipCard type="CPU" data={performance.cpu} />
+                            <ChipCard type="CPU" data={performance.cpu}/>
                         </Col>
                         <Col span={6}>
-                            <RamCard type="RAM" data={performance.ram} />
+                            <RamCard type="RAM" data={performance.ram}/>
                         </Col>
                         <Col span={6}>
-                            <NetworkCard data={performance.network} />
+                            <NetworkCard data={performance.network}/>
                         </Col>
                         <Col span={12}>
-                            <ChipCard type="GPU" data={performance.gpu} />
+                            <ChipCard type="GPU" data={performance.gpu}/>
                         </Col>
                         <Col span={6}>
-                            <RamCard type="VRAM" data={performance.videoRam} />
+                            <RamCard type="VRAM" data={performance.videoRam}/>
                         </Col>
                         <Col span={6}>
-                            <FpsCard data={performance.display} />
+                            {
+                                performance.fps?.value === '0' ? (
+                                    <AudioCard volume={performance.volume}/>
+                                ) : (
+                                    <FpsCard data={performance.fps}/>
+                                )
+                            }
                         </Col>
                     </Row>
                 ) : (

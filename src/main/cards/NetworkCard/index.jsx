@@ -25,7 +25,7 @@ function calcDynamicMax(currentMax) {
 function NetworkCard(
     {
         data = {},
-        n = 40
+        n = 30
     }
 ) {
     const { themeColor } = useConfig();
@@ -98,6 +98,7 @@ function NetworkCard(
                 itemStyle: {
                     color: '#E1E1E2'
                 },
+                barGap: '0%',
             },
             {
                 type: 'bar',
@@ -105,6 +106,7 @@ function NetworkCard(
                 itemStyle: {
                     color: themeColor
                 },
+                barGap: '0%',
             },
         ],
         animation: false

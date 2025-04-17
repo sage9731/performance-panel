@@ -22,7 +22,8 @@ const translators = {
         ram: 'RAM',
         vram: 'VRAM',
         network: 'Network',
-        fps: 'FPS'
+        fps: 'FPS',
+        audio: 'Audio',
     },
     chinese: {
         usage: (<span>AIDA64 LCD Remote Sensor 不可用。
@@ -44,7 +45,8 @@ const translators = {
         ram: '内存',
         vram: '显存',
         network: '网络',
-        fps: '帧数'
+        fps: '帧数',
+        audio: '音频',
     }
 };
 

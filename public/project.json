@@ -1,121 +1,109 @@
 {
-	"file" : "index.html",
-	"general" : 
-	{
-		"properties" : 
-		{
-			"clockFont" :
-			{
-				"index" : 5,
-				"order" : 105,
-				"text" : "时间字体（Clock Font）",
-				"type" : "textinput",
-				"value" : "Arial"
-			},
-			"clockFontSize" :
-			{
-				"fraction" : true,
-				"index" : 6,
-				"max" : 8,
-				"min" : 1,
-				"order" : 106,
-				"precision" : 2,
-				"step" : 0.1,
-				"text" : "时钟字体大小（Clock Font Size）",
-				"type" : "slider",
-				"value" : 4
-			},
-			"dateSeparator" :
-			{
-				"index" : 7,
-				"order" : 107,
-				"text" : "日期分隔符（Date Separator）",
-				"type" : "textinput",
-				"value" : "-"
-			},
-			"customFont" :
-			{
-				"index" : 4,
-				"order" : 104,
-				"text" : "自定义字体(Custom Font)",
-				"type" : "textinput",
-				"value" : ""
-			},
-			"host" : 
-			{
-				"index" : 1,
-				"order" : 101,
-				"text" : "地址（Remote Sensor Host）",
-				"type" : "textinput",
-				"value" : "localhost"
-			},
-			"language" : 
-			{
-				"index" : 0,
-				"options" : 
-				[
-					{
-						"label" : "中文",
-						"value" : "chinese"
-					},
-					{
-						"label" : "English",
-						"value" : "english"
-					}
-				],
-				"order" : 100,
-				"text" : "语言（Language）",
-				"type" : "combo",
-				"value" : "english"
-			},
-			"marginBottom" :
-			{
-				"fraction" : true,
-				"index" : 9,
-				"max" : 10,
-				"min" : 0,
-				"order" : 109,
-				"precision" : 2,
-				"step" : 0.1,
-				"text" : "底部边距（Margin Bottom）",
-				"type" : "slider",
-				"value" : 0
-			},
-			"port" : 
-			{
-				"index" : 2,
-				"order" : 102,
-				"text" : "端口（Remote Sensor Port）",
-				"type" : "textinput",
-				"value" : "32100"
-			},
-			"schemecolor" : 
-			{
-				"order" : 0,
-				"text" : "ui_browse_properties_scheme_color",
-				"type" : "color",
-				"value" : "0 0 0"
-			},
-			"themeColor" :
-			{
-				"index" : 3,
-				"order" : 103,
-				"text" : "主题色（Theme Color）",
-				"type" : "color",
-				"value" : "0.2274509803921569 0.8549019607843137 0.2274509803921569"
-			},
-			"timeSeparator" :
-			{
-				"index" : 8,
-				"order" : 108,
-				"text" : "时间分隔符（Time Separator）",
-				"type" : "textinput",
-				"value" : ":"
-			}
-		}
-	},
-	"preview" : "preview.jpg",
-	"title" : "Performance Panel",
-	"type" : "web",
-	"version" : 0
+  "file": "index.html",
+  "general": {
+    "properties": {
+      "clockFont": {
+        "index": 5,
+        "order": 105,
+        "text": "时间字体（Clock Font）",
+        "type": "textinput",
+        "value": "Arial"
+      },
+      "clockFontSize": {
+        "fraction": true,
+        "index": 6,
+        "max": 8,
+        "min": 1,
+        "order": 106,
+        "precision": 2,
+        "step": 0.1,
+        "text": "时钟字体大小（Clock Font Size）",
+        "type": "slider",
+        "value": 4
+      },
+      "customFont": {
+        "index": 4,
+        "order": 104,
+        "text": "自定义字体(Custom Font)",
+        "type": "textinput",
+        "value": ""
+      },
+      "dateSeparator": {
+        "index": 7,
+        "order": 107,
+        "text": "日期分隔符（Date Separator）",
+        "type": "textinput",
+        "value": "-"
+      },
+      "host": {
+        "index": 1,
+        "order": 101,
+        "text": "地址（Remote Sensor Host）",
+        "type": "textinput",
+        "value": "localhost"
+      },
+      "language": {
+        "index": 0,
+        "options": [
+          {
+            "label": "中文",
+            "value": "chinese"
+          },
+          {
+            "label": "English",
+            "value": "english"
+          }
+        ],
+        "order": 100,
+        "text": "语言（Language）",
+        "type": "combo",
+        "value": "english"
+      },
+      "marginBottom": {
+        "fraction": true,
+        "index": 9,
+        "max": 10,
+        "min": 0,
+        "order": 109,
+        "precision": 2,
+        "step": 0.1,
+        "text": "底部边距（Margin Bottom）",
+        "type": "slider",
+        "value": 0
+      },
+      "port": {
+        "index": 2,
+        "order": 102,
+        "text": "端口（Remote Sensor Port）",
+        "type": "textinput",
+        "value": "32100"
+      },
+      "schemecolor": {
+        "order": 0,
+        "text": "ui_browse_properties_scheme_color",
+        "type": "color",
+        "value": "0 0 0"
+      },
+      "themeColor": {
+        "index": 3,
+        "order": 103,
+        "text": "主题色（Theme Color）",
+        "type": "color",
+        "value": "0.2274509803921569 0.8549019607843137 0.2274509803921569"
+      },
+      "timeSeparator": {
+        "index": 8,
+        "order": 108,
+        "text": "时间分隔符（Time Separator）",
+        "type": "textinput",
+        "value": ":"
+      }
+    },
+    "supportsaudioprocessing": true
+  },
+  "preview": "preview.jpg",
+  "supportsaudioprocessing": true,
+  "title": "Performance Panel",
+  "type": "web",
+  "version": 0
 }

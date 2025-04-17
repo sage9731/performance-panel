@@ -80,7 +80,9 @@ function App() {
             },
         };
 
-
+        return () => {
+            window.wallpaperPropertyListener.applyUserProperties = undefined;
+        }
     }, [])
 
     return (
