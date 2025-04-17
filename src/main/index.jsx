@@ -117,13 +117,7 @@ function Main() {
                             <RamCard type="VRAM" data={performance.videoRam}/>
                         </Col>
                         <Col span={6}>
-                            {
-                                performance.fps?.value === '0' ? (
-                                    <AudioCard volume={performance.volume}/>
-                                ) : (
-                                    <FpsCard data={performance.fps}/>
-                                )
-                            }
+                            <AudioCard volume={performance.volume}/>
                         </Col>
                     </Row>
                 ) : (

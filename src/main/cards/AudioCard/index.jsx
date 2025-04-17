@@ -18,7 +18,11 @@ echarts.use(
 
 const categoryData = Array.from({length: 64}, (_, i) => i);
 
-function AudioCard() {
+function AudioCard(
+    {
+        volume = 0,
+    }
+) {
     const [audioData, setAudioData] = useState({
         left: Array.from({length: 64}, (_, i) => [0.01, i]),
         right: Array.from({length: 64}, (_, i) => [0.01, i]),
@@ -163,6 +167,10 @@ function AudioCard() {
                 <div className="card-title">{intl('audio')}</div>
             </div>
             <div className="card-body">
+                <div className="small-item">
+                    <span>{intl('volume')}</span>
+                    <span>{volume}%</span>
+                </div>
                 <ReactEChartsCore
                     echarts={echarts}
                     option={option}
