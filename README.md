@@ -6,7 +6,7 @@
 
 此项目为 Wallpaper Engine 的网页壁纸，展示 [AIDA64](https://www.aida64.com/downloads) 和 [Riva Tuner Statistics Server](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/) 提供的性能数据，并且可以响应音频，识别当前播放的媒体。
 
-在 Steam 创意工坊中订阅 [Performance Panel]() .
+在 Steam 创意工坊中订阅 [Performance Panel](https://steamcommunity.com/sharedfiles/filedetails/?id=3465632551) .
 
 <img src="./assets/screenshot.gif" alt="screenshot">
 
