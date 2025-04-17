@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Row, Col} from "antd";
+import {useConfig} from "../hooks/useConfig.js";
+import useIntl from "../hooks/useIntl.jsx";
+
 import ChipCard from "./cards/ChipCard/index.jsx";
 import RamCard from "./cards/RamCard/index.jsx";
 import NetworkCard from "./cards/NetworkCard/index.jsx";
-import FpsCard from './cards/FpsCard/index.jsx';
-import {useConfig} from "../hooks/useConfig.js";
-import useIntl from "../hooks/useIntl.jsx";
 import AudioCard from "./cards/AudioCard/index.jsx";
 
 function Main() {
@@ -60,9 +60,9 @@ function Main() {
                         free: data[i++],
                         used: data[i++],
                     },
-                    fps: {
+                    display: {
                         timestamp: Date.now(),
-                        value: data[i++],
+                        fps: data[i++],
                     },
                     volume: data[i++],
                 };
@@ -111,7 +111,7 @@ function Main() {
                             <NetworkCard data={performance.network}/>
                         </Col>
                         <Col span={12}>
-                            <ChipCard type="GPU" data={performance.gpu}/>
+                            <ChipCard type="GPU" data={{...performance.gpu, ...performance.display}}/>
                         </Col>
                         <Col span={6}>
                             <RamCard type="VRAM" data={performance.videoRam}/>

@@ -22,10 +22,11 @@ function calcDynamicMax(currentMax) {
     return speedLevels[speedLevels.length - 1]; // 超过则取最大值
 }
 
+const n = 30;
+
 function NetworkCard(
     {
         data = {},
-        n = 30
     }
 ) {
     const { themeColor } = useConfig();

@@ -139,12 +139,23 @@ body,
                 align-items: center;
 
                 > div {
-                    padding: 0 1rem;
                     width: 33.33%;
                     border-right: 1px solid #3C3C3C;
+                    height: 100% !important;
+
+                    &:first-child {
+                        padding-right: 1rem;
+                    }
+
+                    &:not(:first-child) {
+                        display: grid;
+                        place-items: center;
+                    }
 
                     &:last-child {
+                        padding-left: 1rem;
                         border: none;
+
                     }
                 }
 

@@ -10,6 +10,7 @@ const translators = {
             </a>&nbsp;
             and see how it works.
         </span>),
+        temperature: 'Temperature',
         clock: 'Clock',
         voltage: 'Voltage',
         power: 'Power',
@@ -34,6 +35,7 @@ const translators = {
             </a>&nbsp;
             并查看安装使用说明。
         </span>),
+        temperature: '温度',
         clock: '频率',
         voltage: '电压',
         power: '功耗',

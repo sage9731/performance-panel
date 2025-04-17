@@ -14,15 +14,21 @@
 
 1. 下载并安装 [AIDA64](https://www.aida64.com/downloads)
 2. 运行AIDA64，打开设置，设置开机自启动、最小化和关闭时最小化到任务通知区域，关闭启动时的欢迎画面，当AIDA64启动时最小化到任务通知区域，确保 AIDA64 开机后可以后台运行
+   
    <img src="./assets/aida64-zh-1.png" alt="">
+
 3. 切换到LCD设置，找到 Remote Sensor，修改 TCP/IP 端口为 32100，勾选启用RemoteSensor LCD支持，应用设置后提示“RemoteSensor Init OK”
+   
    <img src="./assets/aida64-zh-2.png" alt="">
+
 4. 切换到LCD-LCD项目，下载并导入 [performance-panel-lcd.rslcd](./public/performance-panel-lcd.rslcd) 文件并应用
+   
    <img src="./assets/aida64-zh-3.png" alt="">
 
 ## 安装 Riva Tuner Statistics Server
 
 1. 下载并安装 [Riva Tuner Statistics Server](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/)
+
 2. 运行并勾选 Start With Windows ，点击最小化按钮使其在后台运行
 
 ## 应用 Wallpaper Engine 壁纸
