@@ -4,14 +4,14 @@ import useIntl from "../../../hooks/useIntl.jsx";
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
 import { LineChart, BarChart } from 'echarts/charts';
-import { DatasetComponent, GridComponent, GraphicComponent } from 'echarts/components';
+import { DatasetComponent, GridComponent } from 'echarts/components';
 import {
   CanvasRenderer,
 } from 'echarts/renderers';
 import { useConfig } from "../../../hooks/useConfig.js";
 
 echarts.use(
-  [LineChart, BarChart, CanvasRenderer, DatasetComponent, GridComponent, GraphicComponent],
+  [LineChart, BarChart, CanvasRenderer, DatasetComponent, GridComponent],
 );
 
 const fpsLevels = [120, 240, 300];
@@ -71,16 +71,6 @@ function ChipCard(
           top: 0,
         }
       ],
-      graphic: [{
-        type: 'text',
-        right: 5,
-        top: 5,
-        style: {
-          text: fps,
-          fontSize: 30,
-          fill: themeColor,
-        }
-      }],
       dataset: {
         source: [
           ['time', 'load', 'fps'],
@@ -170,6 +160,9 @@ function ChipCard(
       <div className="card-header">
         <div className="card-icon">{type === 'CPU' ? <CpuIcon/> : <GpuIcon/>}</div>
         <div className="card-title">{type}</div>
+        {(type === 'GPU' && fps > 0) && (
+          <div className="card-extra">{fps} FPS</div>
+        )}
       </div>
       <div className="card-body">
         <div>
