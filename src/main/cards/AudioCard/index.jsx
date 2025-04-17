@@ -24,23 +24,45 @@ function AudioCard(
     }
 ) {
     const [audioData, setAudioData] = useState({
-        left: Array.from({length: 64}, (_, i) => [0.01, i]),
-        right: Array.from({length: 64}, (_, i) => [0.01, i]),
+        left: [],
+        right: [],
     });
-    const {themeColor, audioMagnification} = useConfig();
+    const {themeColor, audioResponseEnhance} = useConfig();
     const intl = useIntl();
 
     useEffect(() => {
         if (window.wallpaperRegisterAudioListener) {
             window.wallpaperRegisterAudioListener((audioArray) => {
                 if (Array.isArray(audioArray) && audioArray.length === 128) {
-                    const left = Array(64);
-                    const right = Array(64);
+                    let left = Array(64);
+                    let right = Array(64);
+                    let allZero = true;
                     for (let i = 0; i < 64; i++) {
-                        left[i] = [audioArray[i] * audioMagnification, i];
+                        let value = audioArray[i];
+                        if (value < 0.001) {
+                            value = 0;
+                        } else if (audioResponseEnhance) {
+                            value = value / volume * 100 * audioResponseEnhance;
+                        }
+                        left[i] = [value, i];
+                        allZero = allZero && value === 0;
                     }
+                    if (allZero) {
+                        left = [];
+                    }
+                    allZero = true;
                     for (let i = 0; i < 64; i++) {
-                        right[i] = [audioArray[i + 64] * audioMagnification, i];
+                        let value = audioArray[i + 64];
+                        if (value < 0.001) {
+                            value = 0;
+                        } else if (audioResponseEnhance) {
+                            value = value / volume * 100 * audioResponseEnhance;
+                        }
+                        right[i] = [value, i];
+                        allZero = allZero && value === 0;
+                    }
+                    if (allZero) {
+                        right = [];
                     }
                     setAudioData({
                         left,
@@ -56,7 +78,7 @@ function AudioCard(
                 window.wallpaperRegisterAudioListener(undefined);
             }
         }
-    }, [audioMagnification]);
+    }, [audioResponseEnhance, volume]);
 
 
     const option = {
@@ -80,7 +102,7 @@ function AudioCard(
             {
                 gridIndex: 0,
                 type: 'value',
-                max: 2.5,
+                max: 2,
                 min: 0,
                 axisLabel: {show: false},
                 splitLine: {show: false},
@@ -90,7 +112,7 @@ function AudioCard(
                 gridIndex: 1,
                 type: 'value',
                 inverse: true,
-                max: 2.5,
+                max: 2,
                 min: 0,
                 axisLabel: {show: false},
                 splitLine: {show: false},

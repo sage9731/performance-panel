@@ -15,7 +15,7 @@ function App() {
         dateSeparator: '-',
         timeSeparator: ':',
         themeColor: '#3ada3a',
-        audioMagnification: 1,
+        audioResponseEnhance: 1,
     });
 
     useEffect(() => {
@@ -33,52 +33,52 @@ function App() {
                     dateSeparator,
                     timeSeparator,
                     marginBottom,
-                    audioMagnification,
+                    audioResponseEnhance,
                 } = properties;
 
                 setConfig(prevConfig => {
-                    if (language?.value) {
+                    if (language?.value !== undefined) {
                         prevConfig.language = language.value;
                     }
-                    if (host?.value) {
+                    if (host?.value !== undefined) {
                         prevConfig.host = host.value;
                     }
-                    if (port?.value) {
+                    if (port?.value !== undefined) {
                         prevConfig.port = port.value;
                     }
-                    if (themeColor?.value) {
+                    if (themeColor?.value !== undefined) {
                         const tc = convertColor(themeColor);
                         setCssVar('--theme-color', tc);
                         prevConfig.themeColor = tc;
                     }
-                    if (font?.value) {
+                    if (font?.value !== undefined) {
                         setCssVar('--custom-font', font.value)
                         setCssVar('--clock-font', font.value)
                     } else {
                         setCssVar('--custom-font', '')
                         setCssVar('--clock-font', '')
                     }
-                    if (clockFont?.value) {
+                    if (clockFont?.value !== undefined) {
                         setCssVar('--clock-font', clockFont.value)
                     } else {
                         setCssVar('--clock-font', '')
                     }
-                    if (clockFontSize?.value) {
+                    if (clockFontSize?.value !== undefined) {
                         setCssVar('--clock-font-size', clockFontSize.value + 'rem')
                     }
-                    if (dateSeparator?.value) {
+                    if (dateSeparator?.value !== undefined) {
                         prevConfig.dateSeparator = dateSeparator.value;
                     }
-                    if (timeSeparator?.value) {
+                    if (timeSeparator?.value !== undefined) {
                         prevConfig.timeSeparator = timeSeparator.value;
                     }
-                    if (marginBottom?.value) {
+                    if (marginBottom?.value !== undefined) {
                         setCssVar('--margin-bottom', marginBottom.value + 'rem')
                     } else {
                         setCssVar('--margin-bottom', 0)
                     }
-                    if (audioMagnification?.value) {
-                        prevConfig.audioMagnification = parseFloat(audioMagnification.value);
+                    if (audioResponseEnhance?.value !== undefined) {
+                        prevConfig.audioResponseEnhance = audioResponseEnhance.value;
                     }
                     return {
                         ...prevConfig,

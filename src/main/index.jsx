@@ -64,7 +64,7 @@ function Main() {
                         timestamp: Date.now(),
                         fps: data[i++],
                     },
-                    volume: data[i++],
+                    volume: parseInt(data[i++] || '0'),
                 };
 
                 let download = 0;
