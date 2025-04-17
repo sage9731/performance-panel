@@ -88,6 +88,7 @@ body,
 
             .card-title {
                 color: var(--theme-color);
+                flex: 1;
             }
         }
 
@@ -164,12 +165,19 @@ body,
         }
 
         &.card-network, &.card-audio {
+
+            .card-header {
+                .card-extra {
+
+                }
+            }
+
             .card-body {
                 position: relative;
                 display: flex;
                 flex-direction: column;
 
-                .music-icon {
+                .audio-state-icon {
                     position: absolute;
                     top: 50%;
                     left: 50%;

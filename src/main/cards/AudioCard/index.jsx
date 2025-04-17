@@ -1,6 +1,6 @@
 // noinspection JSUnresolvedReference
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
@@ -8,7 +8,7 @@ import { DatasetComponent, GridComponent } from 'echarts/components';
 import {
   CanvasRenderer,
 } from 'echarts/renderers';
-import { AudioIcon, MusicIcon, MusicOffIcon, PauseIcon } from "../../../icon/index.jsx";
+import { AudioIcon, MusicIcon, MusicOffIcon, PauseIcon, VolumeOffIcon } from "../../../icon/index.jsx";
 import { useConfig } from "../../../hooks/useConfig.js";
 import useIntl from "../../../hooks/useIntl.jsx";
 
@@ -42,7 +42,7 @@ function AudioCard(
           let allZero = true;
           for (let i = 0; i < 64; i++) {
             let value = audioArray[i];
-            if (value < 0.001) {
+            if (value < 0.001 || volume <= 0) {
               value = 0;
             } else if (audioResponseEnhance) {
               value = value / volume * 100 * audioResponseEnhance;
@@ -56,7 +56,7 @@ function AudioCard(
           allZero = true;
           for (let i = 0; i < 64; i++) {
             let value = audioArray[i + 64];
-            if (value < 0.001) {
+            if (value < 0.001 || volume <= 0) {
               value = 0;
             } else if (audioResponseEnhance) {
               value = value / volume * 100 * audioResponseEnhance;
@@ -204,11 +204,21 @@ function AudioCard(
     animation: false
   };
   
+  const volumeOff = useMemo(() => volume <= 0 && audioData.left.length === 0 && audioData.right.length === 0, [audioData, volume])
+  
+  
   return (
     <div className="card card-audio">
       <div className="card-header">
         <div className="card-icon"><AudioIcon/></div>
         <div className="card-title">{intl('audio')}</div>
+        {
+          !volumeOff && (
+            <div className="card-extra">
+              <span>{volume}%</span>
+            </div>
+          )
+        }
       </div>
       <div className="card-body">
         <ReactEChartsCore
@@ -217,32 +227,39 @@ function AudioCard(
           notMerge={true}
           lazyUpdate={true}
         />
-        {mediaPlayback.state === window.wallpaperMediaIntegration?.PLAYBACK_STOPPED ? (
-          (audioData.left.length === 0 && audioData.right.length === 0) ? (
-            <MusicOffIcon className="music-icon"/>
+        {
+          volumeOff ? (
+            <VolumeOffIcon className="audio-state-icon"/>
           ) : (
-            <MusicIcon className="music-icon"/>
+            mediaPlayback.state === window.wallpaperMediaIntegration?.PLAYBACK_STOPPED ? (
+              (audioData.left.length === 0 && audioData.right.length === 0) ? (
+                <MusicOffIcon className="audio-state-icon"/>
+              ) : (
+                <MusicIcon className="audio-state-icon"/>
+              )
+            ) : (
+              <>
+                {
+                  mediaThumbnail.thumbnail && (
+                    <div
+                      className={`media-cover ${mediaPlayback.state === window.wallpaperMediaIntegration?.PLAYBACK_PAUSED ? 'media-cover--pause' : ''}`}>
+                      <img src={mediaThumbnail.thumbnail} alt=""/>
+                      <PauseIcon className="pause-icon"/>
+                    </div>
+                  )
+                }
+                {
+                  mediaProperties.title && (
+                    <div className="media-name">
+                      <span>{mediaProperties.title}</span>
+                      {mediaProperties.artist && <span> - {mediaProperties.artist}</span>}
+                    </div>
+                  )
+                }
+              </>
+            )
           )
-        ) : (
-          <>
-            {
-              mediaThumbnail.thumbnail && (
-                <div className={`media-cover ${mediaPlayback.state === window.wallpaperMediaIntegration?.PLAYBACK_PAUSED ? 'media-cover--pause' : ''}`}>
-                  <img src={mediaThumbnail.thumbnail} alt=""/>
-                  <PauseIcon className="pause-icon"/>
-                </div>
-              )
-            }
-            {
-              mediaProperties.title && (
-                <div className="media-name">
-                  <span>{mediaProperties.title}</span>
-                  {mediaProperties.artist && <span> - {mediaProperties.artist}</span>}
-                </div>
-              )
-            }
-          </>
-        )}
+        }
       </div>
     </div>
   );
