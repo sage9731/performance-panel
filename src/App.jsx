@@ -14,7 +14,8 @@ function App() {
         port: 32100,
         dateSeparator: '-',
         timeSeparator: ':',
-        themeColor: '#3ada3a'
+        themeColor: '#3ada3a',
+        audioMagnification: 1,
     });
 
     useEffect(() => {
@@ -32,6 +33,7 @@ function App() {
                     dateSeparator,
                     timeSeparator,
                     marginBottom,
+                    audioMagnification,
                 } = properties;
 
                 setConfig(prevConfig => {
@@ -74,6 +76,9 @@ function App() {
                         setCssVar('--margin-bottom', marginBottom.value + 'rem')
                     } else {
                         setCssVar('--margin-bottom', 0)
+                    }
+                    if (audioMagnification?.value) {
+                        prevConfig.audioMagnification = parseFloat(audioMagnification.value);
                     }
                     return {
                         ...prevConfig,

@@ -27,48 +27,36 @@ function AudioCard(
         left: Array.from({length: 64}, (_, i) => [0.01, i]),
         right: Array.from({length: 64}, (_, i) => [0.01, i]),
     });
-    const {themeColor} = useConfig();
+    const {themeColor, audioMagnification} = useConfig();
     const intl = useIntl();
 
     useEffect(() => {
-        let timer = undefined;
         if (window.wallpaperRegisterAudioListener) {
             window.wallpaperRegisterAudioListener((audioArray) => {
                 if (Array.isArray(audioArray) && audioArray.length === 128) {
                     const left = Array(64);
                     const right = Array(64);
                     for (let i = 0; i < 64; i++) {
-                        left[i] = [Math.max(audioArray[i], 0.01), i];
+                        left[i] = [audioArray[i] * audioMagnification, i];
                     }
                     for (let i = 0; i < 64; i++) {
-                        right[i] = [Math.max(audioArray[i + 64], 0.01), i];
+                        right[i] = [audioArray[i + 64] * audioMagnification, i];
                     }
                     setAudioData({
                         left,
                         right,
-                    })
+                    });
                 } else {
                     setAudioData({left: [], right: []})
                 }
             });
-        } else {
-            timer = setInterval(() => {
-                setAudioData({
-                    left: Array.from({length: 64}, (_, i) => [Math.random(), i]),
-                    right: Array.from({length: 64}, (_, i) => [Math.random(), i]),
-                })
-            }, 300);
         }
-
         return () => {
             if (window.wallpaperRegisterAudioListener) {
                 window.wallpaperRegisterAudioListener(undefined);
             }
-            if (timer) {
-                clearInterval(timer);
-            }
         }
-    }, []);
+    }, [audioMagnification]);
 
 
     const option = {
