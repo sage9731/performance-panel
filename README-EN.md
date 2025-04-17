@@ -47,7 +47,7 @@ Subscribe to [Performance Panel](https://steamcommunity.com/sharedfiles/filedeta
 ### Q: Why are some data displays incorrect?
 
 > A: Different computers may have varying LCD items in AIDA64. You'll need to manually select and modify the corresponding monitoring entries in the LCD settings. 
-> Note: When editing, do not add, delete, or rearrange LCD items, maintain their original order please.
+> Note: When editing, maintain their original order please, do not add, delete, or rearrange LCD items.
 
 <img src="./assets/aida64-eng-4.png" />
 
