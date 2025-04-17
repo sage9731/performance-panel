@@ -29,9 +29,12 @@ Subscribe [Performance Panel](https://steamcommunity.com/sharedfiles/filedetails
    
    <img src="./assets/aida64-eng-3.png" alt="">
 
-## Install Riva Tuner Statistics Server
+## Install Riva Tuner Statistics Server (RTSS)
+
+> Note: If you don't want to view FPS, you can skip the installation of RTSS.
 
 1. Download and install [Riva Tuner Statistics Server](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/)
+ 
 2. Run RTSS and check "Start With Windows", then minimize it to run in background
 
 ## Apply Wallpaper Engine Wallpaper

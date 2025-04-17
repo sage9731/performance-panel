@@ -27,7 +27,9 @@
    
    <img src="./assets/aida64-zh-3.png" alt="">
 
-## 安装 Riva Tuner Statistics Server
+## 安装 Riva Tuner Statistics Server (RTSS)
+
+> Note: 如果不想看帧数的话，可以不用安装 RTSS
 
 1. 下载并安装 [Riva Tuner Statistics Server](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/)
 
