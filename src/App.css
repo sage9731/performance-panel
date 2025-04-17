@@ -165,11 +165,76 @@ body,
 
         &.card-network, &.card-audio {
             .card-body {
+                position: relative;
                 display: flex;
                 flex-direction: column;
 
-                > div:last-child {
-                    flex: 1;
+                .music-icon {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    > svg {
+                        width: 5rem;
+                        height: 5rem;
+                    }
+                }
+
+                .media-cover {
+                    position: absolute;
+                    top: calc(50% - 1rem);
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    max-width: 50%;
+                    max-height: calc(100% - 4rem);
+                    width: 100%;
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+
+                    .pause-icon {
+                        display: none;
+
+                        svg {
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                    }
+
+                    &.media-cover--pause {
+                        img {
+                            opacity: 0.6;
+                        }
+
+                        .pause-icon {
+                            display: block;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+
+                .media-name {
+                    position: absolute;
+                    display: inline-block;
+                    bottom: 0.8rem;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    width: 80%;
+                    text-align: center;
+
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    font-size: 1.2rem;
                 }
             }
         }
