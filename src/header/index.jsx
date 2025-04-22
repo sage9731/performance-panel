@@ -12,7 +12,7 @@ function Header() {
             const now = new Date();
             setDate(getDate(now, dateSeparator));
             setTime(getTime(now, timeSeparator));
-        }, 1000);
+        }, 499);
 
         return () => {
             clearInterval(timer);
