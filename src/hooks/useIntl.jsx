@@ -26,6 +26,7 @@ const translators = {
         fps: 'FPS',
         audio: 'Audio',
         volume: 'Volume',
+        uptime: 'Uptime',
     },
     chinese: {
         usage: (<span>AIDA64 LCD Remote Sensor 不可用。
@@ -51,6 +52,7 @@ const translators = {
         fps: '帧数',
         audio: '音频',
         volume: '音量',
+        uptime: '已运行'
     }
 };
 

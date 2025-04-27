@@ -33,6 +33,7 @@ function ChipCard(
 ) {
   const { themeColor } = useConfig();
   const {
+    uptime,
     load,
     temperature,
     clock,
@@ -136,7 +137,7 @@ function ChipCard(
           xAxisIndex: 1,
           yAxisIndex: 1,
           itemStyle: {
-            color: themeColor
+            color: '#eee'
           },
           barWidth: '50%',
         },
@@ -160,6 +161,9 @@ function ChipCard(
       <div className="card-header">
         <div className="card-icon">{type === 'CPU' ? <CpuIcon/> : <GpuIcon/>}</div>
         <div className="card-title">{type}</div>
+        {(type === 'CPU' && !!uptime) && (
+            <div className="card-extra">{intl('uptime')} {uptime.replace(':', 'h')}m</div>
+        )}
         {(type === 'GPU' && fps > 0) && (
           <div className="card-extra">{fps} FPS</div>
         )}

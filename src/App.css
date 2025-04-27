@@ -90,6 +90,10 @@ body,
                 color: var(--theme-color);
                 flex: 1;
             }
+
+            .card-extra {
+                font-size: 1.5rem;
+            }
         }
 
         .card-body {
