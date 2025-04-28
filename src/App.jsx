@@ -37,47 +37,39 @@ function App() {
                 } = properties;
 
                 setConfig(prevConfig => {
-                    if (language?.value !== undefined) {
+                    if (language) {
                         prevConfig.language = language.value;
                     }
-                    if (host?.value !== undefined) {
+                    if (host) {
                         prevConfig.host = host.value;
                     }
-                    if (port?.value !== undefined) {
+                    if (port) {
                         prevConfig.port = port.value;
                     }
-                    if (themeColor?.value !== undefined) {
+                    if (themeColor) {
                         const tc = convertColor(themeColor);
                         setCssVar('--theme-color', tc);
                         prevConfig.themeColor = tc;
                     }
-                    if (customFont?.value !== undefined) {
+                    if (customFont) {
                         setCssVar('--custom-font', customFont.value)
-                        setCssVar('--clock-font', customFont.value)
-                    } else {
-                        setCssVar('--custom-font', '')
-                        setCssVar('--clock-font', '')
                     }
-                    if (clockFont?.value !== undefined) {
+                    if (clockFont) {
                         setCssVar('--clock-font', clockFont.value)
-                    } else {
-                        setCssVar('--clock-font', '')
                     }
-                    if (clockFontSize?.value !== undefined) {
+                    if (clockFontSize) {
                         setCssVar('--clock-font-size', clockFontSize.value + 'rem')
                     }
-                    if (dateSeparator?.value !== undefined) {
+                    if (dateSeparator) {
                         prevConfig.dateSeparator = dateSeparator.value;
                     }
-                    if (timeSeparator?.value !== undefined) {
+                    if (timeSeparator) {
                         prevConfig.timeSeparator = timeSeparator.value;
                     }
-                    if (marginBottom?.value !== undefined) {
+                    if (marginBottom) {
                         setCssVar('--margin-bottom', marginBottom.value + 'rem')
-                    } else {
-                        setCssVar('--margin-bottom', 0)
                     }
-                    if (audioResponseEnhance?.value !== undefined) {
+                    if (audioResponseEnhance) {
                         prevConfig.audioResponseEnhance = audioResponseEnhance.value;
                     }
                     return {
