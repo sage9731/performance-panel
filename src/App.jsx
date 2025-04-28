@@ -12,7 +12,7 @@ function App() {
         language: 'english',
         host: 'localhost',
         port: 32100,
-        dateSeparator: '-',
+        dateSeparator: '.',
         timeSeparator: ':',
         themeColor: '#3ada3a',
         audioResponseEnhance: 1,

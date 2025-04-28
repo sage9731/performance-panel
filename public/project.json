@@ -110,7 +110,7 @@
         "order": 108,
         "text": "日期分隔符（Date Separator）",
         "type": "textinput",
-        "value": "-"
+        "value": "."
       },
       "timeSeparator": {
         "index": 9,
