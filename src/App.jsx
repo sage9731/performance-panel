@@ -27,7 +27,7 @@ function App() {
                     host,
                     port,
                     themeColor,
-                    font,
+                    customFont,
                     clockFont,
                     clockFontSize,
                     dateSeparator,
@@ -51,9 +51,9 @@ function App() {
                         setCssVar('--theme-color', tc);
                         prevConfig.themeColor = tc;
                     }
-                    if (font?.value !== undefined) {
-                        setCssVar('--custom-font', font.value)
-                        setCssVar('--clock-font', font.value)
+                    if (customFont?.value !== undefined) {
+                        setCssVar('--custom-font', customFont.value)
+                        setCssVar('--clock-font', customFont.value)
                     } else {
                         setCssVar('--custom-font', '')
                         setCssVar('--clock-font', '')
