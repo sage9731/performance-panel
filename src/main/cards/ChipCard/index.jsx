@@ -162,7 +162,7 @@ function ChipCard(
         <div className="card-icon">{type === 'CPU' ? <CpuIcon/> : <GpuIcon/>}</div>
         <div className="card-title">{type}</div>
         {(type === 'CPU' && !!uptime) && (
-            <div className="card-extra">{intl('uptime')} {uptime.replace(':', 'h')}m</div>
+            <div className="card-extra">{intl('uptime')} {uptime.replace(':', 'h').replace(/\s/g, '')}m</div>
         )}
         {(type === 'GPU' && fps > 0) && (
           <div className="card-extra">{fps} FPS</div>
