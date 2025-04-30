@@ -7,6 +7,7 @@ import ChipCard from "./cards/ChipCard/index.jsx";
 import RamCard from "./cards/RamCard/index.jsx";
 import NetworkCard from "./cards/NetworkCard/index.jsx";
 import AudioCard from "./cards/AudioCard/index.jsx";
+import GoldPriceCard from "./cards/GoldPriceCard/index.jsx";
 
 function Main() {
     const {host, port} = useConfig();
@@ -101,23 +102,26 @@ function Main() {
         <div className="main">
             {
                 readyState === 1 ? (
-                    <Row gutter={[24, 24]}>
+                    <Row gutter={[16, 16]}>
                         <Col span={12}>
                             <ChipCard type="CPU" data={performance.cpu}/>
                         </Col>
-                        <Col span={6}>
+                        <Col span={4}>
                             <RamCard type="RAM" data={performance.ram}/>
                         </Col>
-                        <Col span={6}>
+                        <Col span={4}>
                             <NetworkCard data={performance.network}/>
+                        </Col>
+                        <Col span={4}>
+                            <GoldPriceCard/>
                         </Col>
                         <Col span={12}>
                             <ChipCard type="GPU" data={{...performance.gpu, ...performance.display}}/>
                         </Col>
-                        <Col span={6}>
+                        <Col span={4}>
                             <RamCard type="VRAM" data={performance.videoRam}/>
                         </Col>
-                        <Col span={6}>
+                        <Col span={8}>
                             <AudioCard volume={performance.volume}/>
                         </Col>
                     </Row>

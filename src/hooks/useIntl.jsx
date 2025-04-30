@@ -27,6 +27,12 @@ const translators = {
         audio: 'Audio',
         volume: 'Volume',
         uptime: 'Uptime',
+        goldPrice: 'Gold Price',
+        updateTime: 'Update Time',
+        buyPrice: 'Buy Price',
+        sellPrice: 'Sell Price',
+        highPrice: 'High Price',
+        lowPrice: 'Low Price',
     },
     chinese: {
         usage: (<span>AIDA64 LCD Remote Sensor 不可用。
@@ -52,7 +58,13 @@ const translators = {
         fps: '帧数',
         audio: '音频',
         volume: '音量',
-        uptime: '已运行'
+        uptime: '已运行',
+        goldPrice: '黄金价格',
+        updateTime: '更新时间',
+        buyPrice: '买入价格',
+        sellPrice: '卖出价格',
+        highPrice: '最高价',
+        lowPrice: '最低价',
     }
 };
 
