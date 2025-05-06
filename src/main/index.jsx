@@ -34,7 +34,6 @@ function Main() {
                 let i = 1;
                 const performance = {
                     cpu: {
-                        uptime: data[i++],
                         load: data[i++],
                         temperature: data[i++],
                         clock: data[i++],
