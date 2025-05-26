@@ -136,7 +136,7 @@ function ChipCard(
           xAxisIndex: 1,
           yAxisIndex: 1,
           itemStyle: {
-            color: '#eee'
+            color: 'rgba(25,159,255,0.5)'
           },
           barWidth: '50%',
         },
