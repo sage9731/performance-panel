@@ -19,6 +19,7 @@ function Main() {
         const source = new EventSource(`http://${host}:${port}/sse`);
 
         source.addEventListener('message', (event) => {
+          console.log(event.data);
             // Page0|{|}Simple1|31{|}Simple2|84{|}Simple3|3828{|}Simple4|0.950{|}Simple5|34.09{|}Simple6|14{|}Simple7|60{|}Simple8|1282{|}Simple9|0.694{|}Simple10|25.52{|}Simple11|65{|}Simple12|1581{|}Simple13|8.3{|}Simple14|15.1{|}Simple15|27{|}Simple16|1500{|}Simple17|4.4{|}Simple18|1.6{|}Simple19|19{|}Simple20|2.3{|}Simple21|1.8{|}Simple22|0.0{|}Simple23|0.0{|}Simple24|0.0{|}Simple25|0.0{|}Simple26|0.0{|}Simple27|0.0{|}Simple28|0.0{|}Simple29|0.0{|}Simple30|0.0{|}Simple31|0.0{|}Simple32|0.0{|}Simple33|0.0{|}Simple34|0.0{|}Simple35|0.0{|}
             const msg = event.data;
             if (msg && msg.startsWith('Page0')) {

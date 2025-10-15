@@ -37,7 +37,7 @@ function ChipCard(
     temperature,
     clock,
     power,
-    fan,
+    voltage,
     fps,
   } = data;
   const intl = useIntl();
@@ -179,8 +179,8 @@ function ChipCard(
             <span>{temperature}℃</span>
           </div>
           <div className="small-item">
-            <span>{intl('fan')}</span>
-            <span>{fan > 0 ? `${fan} RPM` : 'off'}</span>
+            <span>{intl('voltage')}</span>
+            <span>{voltage > 0 ? `${voltage} V` : '--'}</span>
           </div>
         </div>
         <div className="big-item">
